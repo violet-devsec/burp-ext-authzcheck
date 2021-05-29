@@ -14,6 +14,7 @@ public class BurpExtender implements IBurpExtender
 
         PrintWriter stdout = new PrintWriter(callbacks.getStdout(), true);
 
+	// prnits hello
         stdout.println("Hello World");
 
         throw new RuntimeException("Hello Exceptions");
