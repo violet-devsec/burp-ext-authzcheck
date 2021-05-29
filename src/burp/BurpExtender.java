@@ -1,5 +1,6 @@
 package burp;
 import java.io.PrintWriter;
+import net.authzcheck.ui.ACToolPanel;
 
 public class BurpExtender implements IBurpExtender
 {
@@ -12,10 +13,14 @@ public class BurpExtender implements IBurpExtender
         // set our extension name
         callbacks.setExtensionName("AuthzCheck");
 
-        PrintWriter stdout = new PrintWriter(callbacks.getStdout(), true);
+        PrintWriter stderr = new PrintWriter(callbacks.getStderr(), true);
 
-	// prnits hello
-        stdout.println("Hello World");
+        try{
+            callbacks.addSuiteTab(new ACToolPanel());
+        }
+        catch(Exception ex){
+            ex.printStackTrace(stderr);
+        }
 
         throw new RuntimeException("Hello Exceptions");
     }
