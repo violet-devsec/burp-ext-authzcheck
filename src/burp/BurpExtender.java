@@ -16,7 +16,7 @@ public class BurpExtender implements IBurpExtender
         PrintWriter stderr = new PrintWriter(callbacks.getStderr(), true);
 
         try{
-            callbacks.addSuiteTab(new ACToolPanel());
+            callbacks.addSuiteTab(new ACToolPanel(callbacks.getHelpers()));
         }
         catch(Exception ex){
             ex.printStackTrace(stderr);
