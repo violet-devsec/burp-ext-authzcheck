@@ -22,6 +22,6 @@ public class BurpExtender implements IBurpExtender
             ex.printStackTrace(stderr);
         }
 
-        throw new RuntimeException("Hello Exceptions");
+        throw new RuntimeException("Hello Exceptions!");
     }
 }
